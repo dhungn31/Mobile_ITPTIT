@@ -11,32 +11,13 @@
     Dùng để hiển thị thông tin và xử lý tương tác của người dùng
 
 VD:
-
-    import android.os.Bundle;
-    import android.view.View;
-    import android.widget.Button;
-    import android.widget.Toast;
-    import androidx.appcompat.app.AppCompatActivity;
-    public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Button btn = findViewById(R.id.btnHello);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(
-                    MainActivity.this,
-                    "Hungdzvcl",
-                    Toast.LENGTH_SHORT
-                ).show();
-            }
-        });
+    classMainActivity : AppCompatActivity(){
+    override funonCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+        }
     }
-}
+
 
 + Service:
     Là thành phần thực hiện các công việc không cần giao diện người dùng
@@ -109,11 +90,115 @@ VD:
         Khôi phục những gì đã dừng ở onStop().
     Ví dụ: Nhấn Home (→ onStop), mở lại app (→ onRestart → onStart → onResume).
    
-    7) onDestroy() — Trạng thái: Destroyed
+    7) onDestroy() - Trạng thái: Destroyed
     Activity bị hủy hoàn toàn, loại bỏ khỏi bộ nhớ.
     Tác dụng:
         Giải phóng toàn bộ tài nguyên còn lại.
         Dọn dẹp bộ nhớ, hủy kết nối, thread…
     Ví dụ: Nhấn Back, hệ thống thiếu bộ nhớ, xoay màn hình.
 
-4.
+4. Tìm hiểu về kiến trúc của android, trong kiến trúc của android có các pattern phổ biến nào?
+
+4.1. Kiến trúc hệ điều hành Android
+
+Android là hệ điều hành mã nguồn mở dựa trên nhân Linux, được tổ chức thành nhiều lớp. Mỗi lớp đảm nhiệm một chức năng riêng, giúp hệ thống hoạt động ổn định và hỗ trợ phát triển ứng dụng.
+
+Applications (Ứng dụng): Bao gồm các ứng dụng hệ thống và ứng dụng do người dùng cài đặt, ví dụ: Điện thoại, Tin nhắn và các ứng dụng học tập.
+
+Application Framework (Khung ứng dụng): Cung cấp các API và dịch vụ để lập trình viên phát triển ứng dụng, như quản lý Activity, thông báo và tài nguyên.
+
+Android Runtime (ART): Môi trường thực thi mã ứng dụng Android, hỗ trợ thực thi mã DEX và quản lý bộ nhớ.
+
+Native Libraries (Thư viện gốc): Cung cấp các thư viện phục vụ đồ họa, cơ sở dữ liệu, đa phương tiện và các chức năng hệ thống khác.
+
+Hardware Abstraction Layer (HAL): Cung cấp giao diện giúp Android tương tác với phần cứng như camera, Bluetooth và cảm biến.
+
+Linux Kernel (Nhân Linux): Quản lý tiến trình, bộ nhớ, trình điều khiển thiết bị, mạng và bảo mật ở cấp hệ điều hành.
+
+4.2. Kiến trúc bên trong ứng dụng Android
+
+Khi xây dựng ứng dụng Android, mã nguồn thường được chia thành các lớp để dễ phát triển, kiểm thử và bảo trì.
+
+UI Layer (Lớp giao diện): Hiển thị thông tin và tiếp nhận thao tác của người dùng.
+
+Domain Layer (Lớp nghiệp vụ): Chứa các quy tắc nghiệp vụ và Use Case. Lớp này có thể không cần thiết đối với ứng dụng đơn giản.
+
+Data Layer (Lớp dữ liệu): Quản lý dữ liệu từ cơ sở dữ liệu, API hoặc các nguồn dữ liệu khác.
+
+4.3. Các Architecture Pattern phổ biến
+
+a. MVC (Model – View – Controller)
+
+Model: Quản lý dữ liệu.
+
+View: Hiển thị giao diện.
+
+Controller: Tiếp nhận thao tác của người dùng và điều phối xử lý.
+
+Ưu điểm: Dễ hiểu, phù hợp với các ứng dụng đơn giản.
+
+Nhược điểm: Khi ứng dụng lớn, Controller có thể chứa nhiều logic, gây khó khăn cho việc bảo trì.
+
+b. MVP (Model – View – Presenter)
+
+Model: Quản lý dữ liệu.
+
+View: Hiển thị giao diện.
+
+Presenter: Xử lý logic và điều phối giữa Model với View.
+
+Ưu điểm: Tách biệt giao diện và logic xử lý, thuận tiện cho kiểm thử.
+
+Nhược điểm: Có thể tạo ra nhiều lớp và mã nguồn hơn.
+
+c. MVVM (Model – View – ViewModel)
+
+Model: Quản lý dữ liệu.
+
+View: Hiển thị giao diện.
+
+ViewModel: Xử lý và lưu trữ dữ liệu phục vụ giao diện.
+
+Ưu điểm: Giúp tách biệt giao diện với logic, quản lý trạng thái giao diện thuận tiện và hỗ trợ kiểm thử.
+
+Nhược điểm: Cần tổ chức luồng dữ liệu hợp lý để tránh cấu trúc phức tạp.
+
+Ví dụ: Trong ứng dụng quản lý sinh viên, View hiển thị danh sách, ViewModel xử lý trạng thái danh sách và Repository cung cấp dữ liệu sinh viên.
+
+d. MVI (Model – View – Intent)
+
+Model: Đại diện cho trạng thái giao diện.
+
+View: Hiển thị trạng thái hiện tại.
+
+Intent: Đại diện cho hành động của người dùng.
+
+Ưu điểm: Luồng dữ liệu rõ ràng, trạng thái giao diện được quản lý tập trung.
+
+Nhược điểm: Có thể phức tạp đối với ứng dụng nhỏ.
+
+4.4. Các Design Pattern phổ biến trong Android
+
+a. Repository Pattern
+
+Tạo lớp trung gian giữa phần xử lý nghiệp vụ và nguồn dữ liệu. Repository giúp thống nhất cách lấy dữ liệu từ API hoặc cơ sở dữ liệu.
+
+b. Observer Pattern
+
+Cho phép một đối tượng theo dõi và nhận thông báo khi dữ liệu thay đổi. Ví dụ: giao diện cập nhật khi dữ liệu trong ViewModel thay đổi thông qua LiveData hoặc StateFlow.
+
+c. Singleton Pattern
+
+Đảm bảo một lớp chỉ có một thể hiện dùng chung. Pattern này có thể được sử dụng cho một số đối tượng cần dùng chung trong ứng dụng.
+
+d. Factory Pattern
+
+Đóng gói quá trình tạo đối tượng, giúp chương trình linh hoạt hơn khi cần tạo các đối tượng thuộc những loại khác nhau.
+
+e. Adapter Pattern
+
+Chuyển đổi giao diện của một thành phần để nó có thể làm việc với thành phần khác. Ví dụ: RecyclerView.Adapter kết nối dữ liệu với danh sách hiển thị trên màn hình.
+
+f. Dependency Injection (DI)
+
+Cung cấp các đối tượng phụ thuộc từ bên ngoài thay vì để một lớp tự tạo chúng. DI giúp giảm sự phụ thuộc giữa các lớp và hỗ trợ kiểm thử. Hilt là một công cụ DI phổ biến trong Android.
