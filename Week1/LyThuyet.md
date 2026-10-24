@@ -11,14 +11,13 @@
     Dùng để hiển thị thông tin và xử lý tương tác của người dùng
 
 VD:
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
-
+    import android.os.Bundle;
+    import android.view.View;
+    import android.widget.Button;
+    import android.widget.Toast;
+    import androidx.appcompat.app.AppCompatActivity;
+    public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
