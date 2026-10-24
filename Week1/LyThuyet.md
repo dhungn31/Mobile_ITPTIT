@@ -103,27 +103,27 @@ VD:
 
 Android là hệ điều hành mã nguồn mở dựa trên nhân Linux, được tổ chức thành nhiều lớp. Mỗi lớp đảm nhiệm một chức năng riêng, giúp hệ thống hoạt động ổn định và hỗ trợ phát triển ứng dụng.
 
-Applications (Ứng dụng): Bao gồm các ứng dụng hệ thống và ứng dụng do người dùng cài đặt, ví dụ: Điện thoại, Tin nhắn và các ứng dụng học tập.
+Applications: Bao gồm các ứng dụng hệ thống và ứng dụng do người dùng cài đặt, ví dụ: Điện thoại, Tin nhắn và các ứng dụng học tập.
 
-Application Framework (Khung ứng dụng): Cung cấp các API và dịch vụ để lập trình viên phát triển ứng dụng, như quản lý Activity, thông báo và tài nguyên.
+Application Framework: Cung cấp các API và dịch vụ để lập trình viên phát triển ứng dụng, như quản lý Activity, thông báo và tài nguyên.
 
-Android Runtime (ART): Môi trường thực thi mã ứng dụng Android, hỗ trợ thực thi mã DEX và quản lý bộ nhớ.
+Android Runtime: Môi trường thực thi mã ứng dụng Android, hỗ trợ thực thi mã DEX và quản lý bộ nhớ.
 
-Native Libraries (Thư viện gốc): Cung cấp các thư viện phục vụ đồ họa, cơ sở dữ liệu, đa phương tiện và các chức năng hệ thống khác.
+Native Libraries: Cung cấp các thư viện phục vụ đồ họa, cơ sở dữ liệu, đa phương tiện và các chức năng hệ thống khác.
 
-Hardware Abstraction Layer (HAL): Cung cấp giao diện giúp Android tương tác với phần cứng như camera, Bluetooth và cảm biến.
+Hardware Abstraction Layer: Cung cấp giao diện giúp Android tương tác với phần cứng như camera, Bluetooth và cảm biến.
 
-Linux Kernel (Nhân Linux): Quản lý tiến trình, bộ nhớ, trình điều khiển thiết bị, mạng và bảo mật ở cấp hệ điều hành.
+Linux Kernel: Quản lý tiến trình, bộ nhớ, trình điều khiển thiết bị, mạng và bảo mật ở cấp hệ điều hành.
 
 4.2. Kiến trúc bên trong ứng dụng Android
 
 Khi xây dựng ứng dụng Android, mã nguồn thường được chia thành các lớp để dễ phát triển, kiểm thử và bảo trì.
 
-UI Layer (Lớp giao diện): Hiển thị thông tin và tiếp nhận thao tác của người dùng.
+UI Layer: Hiển thị thông tin và tiếp nhận thao tác của người dùng.
 
-Domain Layer (Lớp nghiệp vụ): Chứa các quy tắc nghiệp vụ và Use Case. Lớp này có thể không cần thiết đối với ứng dụng đơn giản.
+Domain Layer: Chứa các quy tắc nghiệp vụ và Use Case. Lớp này có thể không cần thiết đối với ứng dụng đơn giản.
 
-Data Layer (Lớp dữ liệu): Quản lý dữ liệu từ cơ sở dữ liệu, API hoặc các nguồn dữ liệu khác.
+Data Layer: Quản lý dữ liệu từ cơ sở dữ liệu, API hoặc các nguồn dữ liệu khác.
 
 4.3. Các Architecture Pattern phổ biến
 
